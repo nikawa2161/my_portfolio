@@ -66,6 +66,39 @@ header {
     }
   }
 }
+//TOP画面
+
+.top {
+
+  .top-content {
+    border: 1px  solid black;
+    padding: 0 30px;
+  }
+
+  .top-left {
+    box-sizing: border-box;
+    width: 48%;
+    border: 1px  solid black;
+    float: left;
+    padding: 0 30px;
+
+    h2 {
+    text-align: center;
+    }
+  }
+
+  .top-right {
+    box-sizing: border-box;
+    width: 48%;
+    border: 1px  solid black;
+    float: right;
+    padding: 0 30px;
+
+    h2 {
+      text-align: center;
+      }
+  }
+}
 
 
 //ログイン画面
