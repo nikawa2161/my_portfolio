@@ -18,11 +18,14 @@
       <div class="header-right">
         <ul class="navbar">
           <% if user_signed_in? %>
-          <li class="navbar-item"><%= link_to 'ログアウト', destroy_user_session_path,　data: { method: 'delete' } %></li>
+          <li class="navbar-item"><%= link_to 'ユーザーログアウト', destroy_user_session_path,　data: { method: 'delete' } %></li>
+          <% elsif company_signed_in? %>
+          <li class="navbar-item"><%= link_to '法人ログアウト', destroy_company_session_path,　data: { method: 'delete' } %></li>
           <% else %>
-          <li class="navbar-item"><%= link_to 'ログイン', new_user_session_path %></li>
+          <li class="navbar-item"><%= link_to 'ユーザーログイン', new_user_session_path %></li>
+          <li class="navbar-item"><%= link_to '法人ログイン', new_company_session_path %></li>
           <li class="navbar-item"><%= link_to 'ユーザー登録', new_user_registration_path %></li>
-          <li class="navbar-item"><a href='#'>法人登録</a></li>
+          <li class="navbar-item"><%= link_to '法人登録', new_company_registration_path %></li>
           <li class="navbar-item"><a href='#'>簡単ログイン</a></li>
           <% end %>
         </ul>
