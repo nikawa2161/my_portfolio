@@ -1,5 +1,6 @@
-$cBlack: black;
-$primary-color: #8AC542;
+@import 'variables';
+@import 'form';
+@import 'buttons';
 
 a {
   text-decoration: none;
