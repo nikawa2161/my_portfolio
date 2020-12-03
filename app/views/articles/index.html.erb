@@ -1,5 +1,20 @@
-これは記事です
-
+<div class="container">
+<% @articles.each do |article| %>
+    <div class="card">
+      <div class="card_content">
+        <div class="card_title">
+          <%= article.title %>
+        </div>
+        <div class="card_detail">
+          <div>
+            <p>cohki0305</p>
+            <p>2020/4/16</p>
+          </div>
+        </div>
+      </div>
+    </div>
+     <% end %>
+</div>
  <%= link_to new_article_path do %>
     <div class="float_btn">
       <i class="fa fa-plus"></i>
