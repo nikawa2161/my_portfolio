@@ -23,56 +23,7 @@ a {
 }
 
 
-//ヘッダー
-header {
-  padding: 10px 0;
 
-  .header-nav {
-    box-sizing: border-box;
-    position: relative;
-    border-bottom: 1px solid #eee;
-    height: 70px;
-    margin-bottom: 0;
-
-    .header-left {
-      float: left;
-    }
-
-    .header-right {
-      float: right;
-
-      .navbar {
-        float: left;
-      }
-    }
-    .navbar-item {
-      display: inline-block;
-      margin-left: 30px;
-    }
-  }
-}
-
-.clear::after {
-  content: "";
-  clear: both;
-  display: block;
-}
-
-.mobile-menu-icon {
-  background-color: transparent;
-  border: none;
-  & > span {
-    background-color: $cBlack;
-    width: 30px;
-    height: 2px;
-    display: block;
-    margin-bottom: 9px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
 //TOP画面
 
 .top {
@@ -137,7 +88,7 @@ header {
     font-size: 14px;
     height: 45px;
     text-align: center;
-    background: #3FB8AF;
+    background: $base-bg-color;
     color: #FFFFFF;
     cursor: pointer;
     border: none;
