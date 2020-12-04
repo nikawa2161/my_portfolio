@@ -1,0 +1,65 @@
+<div class="container">
+  <ul>
+    <% article.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <%= form_with(model: article, local: true) do |f| %>
+    <div>
+      <%= f.label :title, 'タイトル' %>
+    </div>
+    <div>
+      <%= f.text_field :title, class: 'text' %>
+    </div>
+    <div>
+      <%= f.label :body, '本文' %>
+    </div>
+    <div>
+      <%= f.text_area :body %>
+    </div>
+    <div>
+      <%= f.label :Job_title, '応募職種' %>
+    </div>
+    <div>
+      <%= f.text_field :Job_title, class: 'text' %>
+    </div>
+    <div>
+      <%= f.label :employment, '雇用形態' %>
+    </div>
+    <div>
+      <%= f.text_field :employment, class: 'text' %>
+    </div>
+    <div>
+      <%= f.label :education, '学歴' %>
+    </div>
+    <div>
+      <%= f.text_field :education, class: 'text' %>
+    </div>
+    <div>
+      <%= f.label :licensure, '必須免許' %>
+    </div>
+    <div>
+      <%= f.text_field :licensure, class: 'text' %>
+    </div>
+    <div>
+      <%= f.label :documents, '応募書類' %>
+    </div>
+    <div>
+      <%= f.text_field :documents, class: 'text' %>
+    </div>
+    <div>
+      <%= f.label :selection, '選考方法' %>
+    </div>
+    <div>
+      <%= f.text_field :selection, class: 'text' %>
+    </div>
+    <div>
+      <%= f.label :screening_location, '選考場所' %>
+    </div>
+    <div>
+      <%= f.text_field :screening_location, class: 'text' %>
+    </div>
+
+    <%= f.submit '保存', class: 'btn-primary' %>
+  <% end %>
+</div>
