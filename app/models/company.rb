@@ -5,4 +5,8 @@ class Company < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :articles, dependent: :destroy
+
+  def has_written?(article)
+    articles.exists?(id: article.id)
+  end
 end
