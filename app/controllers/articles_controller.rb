@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update]
+  before_action :set_article, only: [:show]
+  before_action :authenticate_company!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @articles = Article.all
@@ -23,9 +24,11 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @article = current_company.articles.find(params[:id])
   end
 
   def update
+    @article = current_company.articles.find(params[:id])
     if @article.update(article_params)
       redirect_to article_path(@article), notice: '更新できました'
     else
