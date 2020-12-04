@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_133514) do
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
+    t.bigint "company_id", null: false
     t.string "title", null: false
     t.text "body", null: false
     t.string "Job_title", null: false
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_133514) do
     t.string "screening_location", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_articles_on_company_id"
   end
 
   create_table "companies", force: :cascade do |t|

@@ -2,9 +2,10 @@
   <h1 class="article_title"><%= @article.title %></h1>
   <div class="article_detail">
     <div>
-      <p>cohki0305</p>
+      <p><%= @article.company.display_name %></p>
       <p><%= @article.display_created_at %></p>
     </div>
+    <% if company_signed_in? && current_company.has_written?(@article) %>
     <div class="article_detail_actions">
       <div class="dropdown">
         <%= image_tag 'actions.svg', class: 'dropbtn' %>
@@ -14,6 +15,7 @@
         </div>
       </div>
     </div>
+    <% end %>
   </div>
   <div class="article_content">
       <p><%= @article.Job_title %></p>
