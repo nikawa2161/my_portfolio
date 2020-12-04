@@ -10,7 +10,7 @@ class CreateArticles < ActiveRecord::Migration[6.0]
       t.string :documents, null: false
       t.string :selection, null: false
       t.string :screening_location, null: false
-      
+
       t.timestamps
     end
   end
