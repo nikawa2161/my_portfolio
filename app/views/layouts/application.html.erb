@@ -22,7 +22,7 @@
         <%= link_to '転職サイト', root_path, class: 'header_pageTitle' %>
       </div>
       <div class="dropdown">
-        <%= image_tag 'default-avatar', class: 'header_back', class: 'header_avatar dropbtn' %>
+        <%= image_tag current_user.avatar_image, class: 'header_back', class: 'header_avatar dropbtn' %>
         <div class="dropdown-content">
           <% if user_signed_in? %>
             <%= link_to 'プロフィール', profile_path %>
