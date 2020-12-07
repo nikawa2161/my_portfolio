@@ -12,6 +12,7 @@ class Article < ApplicationRecord
   validates :selection, presence: true
   validates :screening_location, presence: true
   
+  has_many :likes, dependent: :destroy
   belongs_to :company
   def display_created_at
     I18n.l(self.created_at, format: :default)

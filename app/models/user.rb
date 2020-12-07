@@ -4,9 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+   has_many :likes, dependent: :destroy
    has_one :profile, dependent: :destroy
 
    delegate :birthday, :age, :gender, to: :profile, allow_nil: true
+
+  def has_liked?(article)
+    likes.exists?(article_id: article.id)
+  end
 
   def display_name
     profile&.nickname || self.email.split('@').first
