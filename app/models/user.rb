@@ -9,6 +9,10 @@ class User < ApplicationRecord
 
    delegate :birthday, :age, :gender, to: :profile, allow_nil: true
 
+  def has_liked?(article)
+    likes.exists?(article_id: article.id)
+  end
+
   def display_name
     profile&.nickname || self.email.split('@').first
   end
