@@ -5,6 +5,12 @@
     <% end %>
   </ul>
   <%= form_with(model: article, local: true) do |f| %>
+  <div>
+      <%= f.label :eyecatch, 'アイキャッチ' %>
+    </div>
+    <div>
+      <%= f.file_field :eyecatch %>
+    </div>
     <div>
       <%= f.label :title, 'タイトル' %>
     </div>
