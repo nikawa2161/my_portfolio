@@ -14,12 +14,12 @@
   <body>
   <header class="header">
         <div class="header_logos">
-          <% if !current_page?(root_path) %>
+          <% unless root_path || articles_path %>
             <%= link_to :back do %>
               <%= image_tag 'back.svg', class: 'header_back' %>
             <% end %>
           <% end %>
-        <%= link_to '転職サイト', root_path, class: 'header_pageTitle' %>
+        <%= link_to '転職サイト', articles_path, class: 'header_pageTitle' %>
       </div>
       <div class="dropdown">
         <% if user_signed_in? %>
