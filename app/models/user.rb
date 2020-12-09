@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
    has_many :likes, dependent: :destroy
+   has_many :favorite_articles, through: :likes, source: :article
    has_one :profile, dependent: :destroy
 
    delegate :birthday, :age, :gender, to: :profile, allow_nil: true
