@@ -1,0 +1,16 @@
+{
+  "name": "my_portfolio",
+  "description": "This is portfolio",
+  "keywords": [],
+  "website": "",
+  "repository": "https://github.com/nikawa2161/my_portfolio",
+  "env": {},
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "buildpacks": [{
+    "url": "heroku/nodejs"
+  }, {
+    "url": "heroku/ruby"
+  }]
+}
