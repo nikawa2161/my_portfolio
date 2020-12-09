@@ -1,5 +1,10 @@
 <%= link_to article_path(article) do %>
     <div class="card">
+      <% if article.eyecatch.attached? %>
+        <div class="card_image">
+          <%= image_tag article.eyecatch %>
+        </div>
+      <% end %>
       <div class="card_content">
         <div class="card_title">
           <%= article.title %>
