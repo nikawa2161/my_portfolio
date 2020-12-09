@@ -25,6 +25,8 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'devise'
 gem 'aws-sdk-s3', require: false
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
