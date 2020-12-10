@@ -8,6 +8,9 @@ class User < ApplicationRecord
    has_many :favorite_articles, through: :likes, source: :article
    has_one :profile, dependent: :destroy
 
+   has_many :relatinships, dependent: :destroy
+   has_many :followings, through: :relatinships, source: :company
+
    delegate :birthday, :age, :gender, to: :profile, allow_nil: true
 
   def has_liked?(article)
@@ -22,6 +25,11 @@ class User < ApplicationRecord
     profile || build_profile
   end
 
+  def follow!(company)
+    relatinships.create!(company_id: company.id)
+  end
+
+  
   def avatar_image
     if profile&.avatar&.attached?
       profile.avatar
