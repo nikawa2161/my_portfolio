@@ -29,6 +29,11 @@ class User < ApplicationRecord
     relationships.create!(company_id: company.id)
   end
 
+  def unfollow!(company)
+    relation = relationships.find_by!(company_id: company.id)
+    relation.destroy!
+  end
+
   
   def avatar_image
     if profile&.avatar&.attached?
