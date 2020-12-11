@@ -1,4 +1,4 @@
-class Relatinship < ApplicationRecord
+class Relationship < ApplicationRecord
   belongs_to :user
   belongs_to :company
 end

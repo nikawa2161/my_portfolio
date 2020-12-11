@@ -6,6 +6,9 @@ class Company < ApplicationRecord
 
   has_many :articles, dependent: :destroy
 
+  has_many :relationships, dependent: :destroy
+  has_many :followers, through: :relationships, source: :user
+
   def has_written?(article)
     articles.exists?(id: article.id)
   end

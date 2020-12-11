@@ -8,8 +8,8 @@ class User < ApplicationRecord
    has_many :favorite_articles, through: :likes, source: :article
    has_one :profile, dependent: :destroy
 
-   has_many :relatinships, dependent: :destroy
-   has_many :followings, through: :relatinships, source: :company
+   has_many :relationships, dependent: :destroy
+   has_many :followings, through: :relationships, source: :company
 
    delegate :birthday, :age, :gender, to: :profile, allow_nil: true
 
@@ -26,7 +26,7 @@ class User < ApplicationRecord
   end
 
   def follow!(company)
-    relatinships.create!(company_id: company.id)
+    relationships.create!(company_id: company.id)
   end
 
   
