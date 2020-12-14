@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :relationships, only: [:show]
 
   resource :profile, only: [:show, :edit, :update]
+  resource :company_profile, only: [:show, :edit, :update]
 
   resources :favorites, only: [:index]
 
