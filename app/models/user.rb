@@ -26,12 +26,22 @@ class User < ApplicationRecord
   end
 
   def follow!(company)
-    relationships.create!(company_id: company.id)
+    if company.is_a?(Company)
+      company_id = company.id
+    else
+      company_id = company
+    end
+
+    relationships.create!(company_id: company_id)
   end
 
   def unfollow!(company)
     relation = relationships.find_by!(company_id: company.id)
     relation.destroy!
+  end
+
+  def has_followed?(company)
+    relationships.exists?(company_id: company.id)
   end
 
   

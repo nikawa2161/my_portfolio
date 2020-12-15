@@ -13,7 +13,11 @@
           <% if company == current_company%>
             <%= link_to 'Edit', edit_company_profile_path %>
           <% else %>
-            <%= link_to 'Follow', '#'%>
+           <% if current_user&.has_followed?(company) %>
+              <p> フォロー済み </p>
+            <% else %>
+            <%= link_to 'Follow', relationship_follows_path(company), data: {method: 'post'} %>
+            <% end %>
           <% end %>
         </div>
     </div>
