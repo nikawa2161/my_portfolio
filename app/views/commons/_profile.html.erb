@@ -1,0 +1,32 @@
+<div class="container profilePage">
+  <div class="profilePage_user">
+    <div class="profilePage_user_image">
+      <%= image_tag company.avatar_image %>
+    </div>
+    <div class="profilePage_user_basicInfo">
+      <div class="profilePage_user_name">
+        <div class="profilePage_user_displayName">
+          <%= company.display_name %>
+        </div>
+
+        <div class="profilePage_user_actionButton">
+          <% if company == current_company%>
+            <%= link_to 'Edit', edit_company_profile_path %>
+          <% else %>
+            <%= link_to 'Follow', '#'%>
+          <% end %>
+        </div>
+    </div>
+    <div class="profilePage_user_introduction">
+      <%= company.company_profile&.introduction %>
+      <%= company.company_profile&.address %>
+      <%= company.company_profile&.phone_number %>
+    </div>
+    <div class="profilePage_user_introduction">
+      <%= company.company_profile&.address %>
+    </div>
+    <div class="profilePage_user_introduction">
+      <%= company.company_profile&.phone_number %>
+    </div>
+  </div>
+</div>

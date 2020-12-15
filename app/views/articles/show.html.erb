@@ -7,7 +7,7 @@
   <h1 class="article_title"><%= @article.title %></h1>
   <div class="article_detail">
     <%= link_to relationship_path(@article.company) do %>
-      <h1>profile</h1>
+      <%= image_tag @article.company.avatar_image %>
     <% end %>
     <div>
       <p><%= @article.company.display_name %></p>

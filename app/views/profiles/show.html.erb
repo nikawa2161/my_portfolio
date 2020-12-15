@@ -7,8 +7,8 @@
       <div class="profilePage_user_name">
         <div class="profilePage_user_displayName">
           <%= current_user.display_name %>
-          <%= current_user.age %>
-          <%= I18n.t("enum.genders.#{current_user.gender}") %>
+          <%= current_user.age || '年齢未設定' %>
+          <%= I18n.t("enum.genders.#{current_user.gender || 'unknown'}") %>
 
         </div>
         <div class="profilePage_user_actionButton">
