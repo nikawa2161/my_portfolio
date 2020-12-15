@@ -17,10 +17,8 @@
       </div>
     </div>
   </div>
-  <% if company_signed_in? %>
     <div class="card_heart">
       <%= image_tag 'heart.svg' %>
       <span><%= article.like_count %></span>
     </div>
-  <% end %>
 <% end %>

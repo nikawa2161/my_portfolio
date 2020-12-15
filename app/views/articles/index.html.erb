@@ -3,8 +3,10 @@
   <%= render 'article', article: article %>
 <% end %>
 </div>
+<% if company_signed_in?%>
  <%= link_to new_article_path do %>
     <div class="float_btn">
       <i class="fa fa-plus"></i>
     </div>
   <% end %>
+<% end %>
