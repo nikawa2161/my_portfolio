@@ -26,12 +26,19 @@ class User < ApplicationRecord
   end
 
   def follow!(company)
-    relationships.create!(company_id: company.id)
+    company_id = get_compay_id(company)
+
+    relationships.create!(company_id: company_id)
   end
 
   def unfollow!(company)
-    relation = relationships.find_by!(company_id: company.id)
+    company_id = get_compay_id(company)
+    relation = relationships.find_by!(company_id: company_id)
     relation.destroy!
+  end
+
+  def has_followed?(company)
+    relationships.exists?(company_id: company.id)
   end
 
   
@@ -40,6 +47,15 @@ class User < ApplicationRecord
       profile.avatar
     else
       'default-avatar.png'
+    end
+  end
+
+  private
+  def get_compay_id(company)
+    if company.is_a?(Company)
+      company.id
+    else
+      company
     end
   end
 end

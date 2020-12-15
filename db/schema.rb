@@ -58,13 +58,22 @@ ActiveRecord::Schema.define(version: 2020_12_11_095943) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "comoany_name"
-    t.string "address"
-    t.string "phone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
+  end
+
+  create_table "company_profiles", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.string "company_name"
+    t.text "introduction"
+    t.string "address"
+    t.string "phone_number"
+    t.boolean "subscribed", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_company_profiles_on_company_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -79,9 +88,15 @@ ActiveRecord::Schema.define(version: 2020_12_11_095943) do
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "nickname"
+    t.string "last_name"
+    t.string "first_name"
+    t.string "kana_last_name"
+    t.string "kana_first_name"
     t.text "introduction"
     t.integer "gender"
     t.date "birthday"
+    t.string "address"
+    t.string "phone_number"
     t.boolean "subscribed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -103,15 +118,6 @@ ActiveRecord::Schema.define(version: 2020_12_11_095943) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "last_name"
-    t.string "first_name"
-    t.string "kana_last_name"
-    t.string "kana_first_name"
-    t.integer "gender"
-    t.text "introduction"
-    t.date "birthday"
-    t.string "address"
-    t.string "phone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
