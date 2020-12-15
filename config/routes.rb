@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
 
   resource :following_list, only: [:show]
+  resource :follower_list, only: [:show]
 
   resources :relationships, only: [:show] do
   resources :follows, only: [:create]
