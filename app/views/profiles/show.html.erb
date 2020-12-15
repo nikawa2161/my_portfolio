@@ -15,8 +15,27 @@
           <%= link_to 'Edit', edit_profile_path %>
         </div>
       </div>
-      <div class="profilePage_user_introduction"></div>
-      <%= current_user.profile&.introduction %>
+      <div class="profilePage_user_introduction">
+        <%= current_user.profile&.last_name %>
+      </div>
+      <div class="profilePage_user_introduction">
+        <%= current_user.profile&.first_name %>
+      </div>
+      <div class="profilePage_user_introduction">
+        <%= current_user.profile&.kana_last_name %>
+      </div>
+      <div class="profilePage_user_introduction">
+        <%= current_user.profile&.kana_first_name %>
+      </div>
+      <div class="profilePage_user_introduction">
+        <%= current_user.profile&.introduction %>
+      </div>
+      <div class="profilePage_user_introduction">
+        <%= current_user.profile&.address %>
+      </div>
+      <div class="profilePage_user_introduction">
+        <%= current_user.profile&.phone_number %>
+      </div>
     </div>
   </div>
 </div>

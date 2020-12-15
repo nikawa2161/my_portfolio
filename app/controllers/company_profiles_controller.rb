@@ -27,7 +27,8 @@ class CompanyProfilesController < ApplicationController
       :introduction,
       :address,
       :phone_number,
-      :subscribed
+      :subscribed,
+      :avatar
     )
   end
 end
