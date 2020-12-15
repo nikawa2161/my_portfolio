@@ -14,7 +14,7 @@
             <%= link_to 'Edit', edit_company_profile_path %>
           <% else %>
            <% if current_user&.has_followed?(company) %>
-              <p> フォロー済み </p>
+              <%= link_to 'Unfollow', relationship_unfollows_path(company), data: {method: 'post'} %>
             <% else %>
             <%= link_to 'Follow', relationship_follows_path(company), data: {method: 'post'} %>
             <% end %>
