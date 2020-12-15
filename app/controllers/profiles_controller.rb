@@ -24,11 +24,17 @@ class ProfilesController < ApplicationController
   def profile_params
     params.require(:profile).permit(
       :nickname,
+      :last_name,
+      :first_name,
+      :kana_last_name,
+      :kana_first_name,
       :introduction,
       :gender,
       :birthday,
       :subscribed,
-      :avatar
+      :avatar,
+      :address,
+      :phone_number
     )
   end
 end
