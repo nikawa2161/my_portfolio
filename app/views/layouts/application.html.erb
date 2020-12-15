@@ -21,6 +21,7 @@
           <%= image_tag current_user.avatar_image, class: 'header_back', class: 'header_avatar dropbtn' %>
           <div class="dropdown-content">
             <%= link_to 'プロフィール', profile_path %>
+            <%= link_to 'フォロー一覧', following_list_path %>
             <%= link_to 'お気に入り', favorites_path %>
             <%= link_to 'ユーザーログアウト', destroy_user_session_path,　data: { method: 'delete' } %>
           </div>
