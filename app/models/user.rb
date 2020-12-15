@@ -17,13 +17,6 @@ class User < ApplicationRecord
     likes.exists?(article_id: article.id)
   end
 
-  def display_name
-    profile&.nickname || self.email.split('@').first
-  end
-
-  def prepare_profile
-    profile || build_profile
-  end
 
   def follow!(company)
     company_id = get_compay_id(company)
@@ -39,15 +32,6 @@ class User < ApplicationRecord
 
   def has_followed?(company)
     relationships.exists?(company_id: company.id)
-  end
-
-  
-  def avatar_image
-    if profile&.avatar&.attached?
-      profile.avatar
-    else
-      'default-avatar.png'
-    end
   end
 
   private
