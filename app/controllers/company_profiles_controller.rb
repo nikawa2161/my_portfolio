@@ -21,8 +21,8 @@ class CompanyProfilesController < ApplicationController
   end
 
   private
-  def profile_params
-    params.require(:profile).permit(
+  def company_profile_params
+    params.require(:company_profile).permit(
       :company_name,
       :introduction,
       :address,
