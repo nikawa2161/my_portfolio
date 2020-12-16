@@ -15,3 +15,14 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+import $ from 'jquery'
+import Axios from 'axios'
+
+document.addEventListener('turbolinks:load', () => {
+  const dataset = $('article-show').data()
+  const articleId = dataset.articleId
+  axios.get(`/articles/${articleId}/like`)
+  .then((response) => {
+    console.log(response)
+  })
+})
