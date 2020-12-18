@@ -6,47 +6,69 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  <header class="header">
-        <div class="header_logos">
-        <%= link_to '転職サイト', articles_path, class: 'header_pageTitle' %>
-      </div>
-      <div class="dropdown">
-        <% if user_signed_in? %>
-          <%= image_tag current_user.avatar_image, class: 'header_back', class: 'header_avatar dropbtn' %>
-          <div class="dropdown-content">
-            <%= link_to 'プロフィール', profile_path %>
-            <%= link_to 'フォロー一覧', following_list_path %>
-            <%= link_to 'お気に入り', favorites_path %>
-            <%= link_to 'ユーザーログアウト', destroy_user_session_path,　data: { method: 'delete' } %>
-          </div>
-        <% elsif company_signed_in? %>
-          <%= image_tag current_company.avatar_image, class: 'header_back', class: 'header_avatar dropbtn' %>
-          <div class="dropdown-content">
-            <%= link_to 'プロフィール', company_profile_path %>
-            <%= link_to 'フォロワー一覧', follower_list_path %>
-            <%= link_to '法人ログアウト', destroy_company_session_path,　data: { method: 'delete' } %>
-          </div>
-        <% else %>
-        <div id="nav-drawer">
-      <input id="nav-input" type="checkbox" class="nav-unshown">
-      <label id="nav-open" for="nav-input"><span></span></label>
-      <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-      <div id="nav-content"><%= link_to 'ユーザーログイン', new_user_session_path %>
-          <%= link_to '法人ログイン', new_company_session_path %>
-          <%= link_to 'ユーザー登録', new_user_registration_path %>
-          <%= link_to '法人登録', new_company_registration_path %>
-          <a href='#'>簡単ログイン</a></div>
-         </div>
-          
-        <% end %>
-        </div>
-      </div>    
+  <header class="header bg-light">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+  <%= link_to '転職サイト', articles_path, class: 'header_pageTitle text-primary' %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+      <li class="nav-item active ml-auto">
+        <%= link_to 'プロフィール', profile_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item active ml-auto">
+        <%= link_to 'フォロー一覧', following_list_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item active ml-auto">
+        <%= link_to 'お気に入り', favorites_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item active ml-auto">
+        <%= link_to 'ユーザーログアウト', destroy_user_session_path, data: { method: 'delete' }, class: "nav-link" %>
+      </li>
+      <% elsif company_signed_in? %>
+      <li class="nav-item active ml-auto">
+        <%= link_to 'プロフィール', company_profile_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item active ml-auto">
+        <%= link_to 'フォロワー一覧', follower_list_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item active ml-auto">
+        <%= link_to '法人ログアウト', destroy_company_session_path, class: "nav-link" %>
+      </li>
+      <% else %>
+      <li class="nav-item active ml-auto">
+        <%= link_to 'ユーザーログイン', new_user_session_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item active ml-auto">
+        <%= link_to '法人ログイン', new_company_session_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item active ml-auto">
+        <%= link_to 'ユーザー登録', new_user_registration_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item active ml-auto">
+        <%= link_to '法人登録', new_company_registration_path, class: "nav-link" %>
+      </li>
+       <li class="nav-item active ml-auto">
+         <a href='#' class="nav-link">簡単ログイン</a>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+
+
+    </div> 
   </header>
     <% if flash.present? %>
       <div class="flash">
@@ -54,7 +76,11 @@
           <div class="<%= key %>"><%= value %></div>
         <% end %>
       </div>
+      
     <% end %>
+    <main class='bg-info'>
     <%= yield %>
+    </main>
+    <footer></footer>
   </body>
 </html>
