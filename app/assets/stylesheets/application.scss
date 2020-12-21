@@ -3,7 +3,7 @@
 @import 'header';
 // @import 'form';
 @import 'card';
-// @import 'buttons';
+@import 'buttons';
 // @import 'flash';
 @import 'article';
 // @import 'common';
@@ -135,7 +135,7 @@ a {
     font-size: 14px;
     height: 45px;
     text-align: center;
-    background: $base-bg-color;
+    background: $light-bg-color;
     color: #FFFFFF;
     cursor: pointer;
     border: none;
