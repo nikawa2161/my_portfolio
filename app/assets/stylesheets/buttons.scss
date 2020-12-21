@@ -1,7 +1,7 @@
 @import './variables'; 
 
 .btn-primary {
-background-color: $primary-color;
+background-color: $header-color;
 border: none;
 width: 100%;
 text-align: center;
@@ -12,10 +12,10 @@ font-weight: bold;
 
 .btn-secondary {
     background-color: white;
-    border: solid 1px $primary-color;
+    border: solid 1px $header-color;
     width: 100%;
     text-align: center;
-    color: $primary-color;
+    color: $header-color;
     padding: 16px 0;
     font-weight: bold;
   }
