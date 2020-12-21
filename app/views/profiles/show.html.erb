@@ -1,42 +1,70 @@
-<div class="container profilePage">
-  <div class="profilePage_user">
-    <div class="profilePage_user_image">
-      <%= image_tag current_user.avatar_image %>
-    </div>
-    <div class="profilePage_user_basicInfo">
-      <div class="profilePage_user_name">
-        <div class="profilePage_user_displayName">
-          <%= current_user.display_name %>
-          <%= current_user.age || '年齢未設定' %>
-          <%= I18n.t("enum.genders.#{current_user.gender || 'unknown'}") %>
 
-        </div>
-        <div class="profilePage_user_actionButton">
-          <%= link_to 'Edit', edit_profile_path %>
-        </div>
-      </div>
-      <div class="profilePage_user_introduction">
-        <%= current_user.profile&.last_name %>
-      </div>
-      <div class="profilePage_user_introduction">
-        <%= current_user.profile&.first_name %>
-      </div>
-      <div class="profilePage_user_introduction">
-        <%= current_user.profile&.kana_last_name %>
-      </div>
-      <div class="profilePage_user_introduction">
-        <%= current_user.profile&.kana_first_name %>
-      </div>
-      <div class="profilePage_user_introduction">
-        <%= current_user.profile&.introduction %>
-      </div>
-      <div class="profilePage_user_introduction">
-        <%= current_user.profile&.address %>
-      </div>
-      <div class="profilePage_user_introduction">
-        <%= current_user.profile&.phone_number %>
-      </div>
+<div class="container profile">
+  <div class="row">
+    <div class="col text-center profile_top">
+      <h1>My Page</h1>
+      <h3>マイページ</h3>
     </div>
   </div>
-</div>
+  <div class="row profile_content">
+    <div class="col-lg-4">
+      <div class="profile_image">
+      <%= image_tag current_user.avatar_image %>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th scope="row">氏名</th>
+            <td><%= current_user.display_name %></td>
+          </tr>
+          <tr>
+            <th scope="row">年齢</th>
+            <td><%= current_user.age || '年齢未設定' %></td>
+          </tr>
+          <tr>
+            <th scope="row">性別</th>
+            <td><%= I18n.t("enum.genders.#{current_user.gender || 'unknown'}") %></td>
+          </tr>
+          <tr>
+            <th scope="row">電話番号</th>
+            <td><%= current_user.profile&.last_name %></td>
+          </tr>
+          <tr>
+            <th scope="row">氏名</th>
+            <td><%= current_user.profile&.first_name %></td>
+          </tr>
+          <tr>
+            <th scope="row">年齢</th>
+            <td><%= current_user.profile&.kana_last_name %></td>
+          </tr>
+          <tr>
+            <th scope="row">性別</th>
+            <td><%= current_user.profile&.kana_first_name %></td>
+          </tr>
+          <tr>
+            <th scope="row">電話番号</th>
+            <td> <%= current_user.profile&.introduction %></td>
+          </tr>
+          <tr>
+            <th scope="row">性別</th>
+            <td><%= current_user.profile&.address %></td>
+          </tr>
+          <tr>
+            <th scope="row">電話番号</th>
+            <td><%= current_user.profile&.phone_number %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="profilePage_user_actionButton">
+          <%= link_to 'Edit', edit_profile_path %>
+      </div>
+    </div>
 
+
+  </div>
+
+
+
+</>
