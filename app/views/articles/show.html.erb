@@ -14,12 +14,16 @@
     <% if company_signed_in? && current_company.has_written?(@article) %>
       <div class="article_detail_actions">
         <div class="dropdown">
-          <%= image_tag 'actions.svg', class: 'dropbtn' %>
-          <div class="dropdown-content mini">
-            <%= link_to '編集する', edit_article_path(@article) %>
-            <%= link_to '削除する', article_path(@article), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' } %>
+          <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag 'actions.svg' %>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to '編集する', edit_article_path(@article), class:"dropdown-item" %>
+            <%= link_to '削除する', article_path(@article), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }, class:"dropdown-item" %>
           </div>
         </div>
+
+
       </div>
     <% end %>
     <div class="article_content">

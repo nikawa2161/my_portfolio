@@ -67,6 +67,18 @@ $container-padding: 16px;
   }
 }
 
+.card-body {
+  .dropdown {
+    margin-right: 60px;
+
+    .dropdown-menu {
+      min-width: 3rem;
+    }
+  }
+
+
+}
+
 
 .article_pro {
   padding-top: 10px;
