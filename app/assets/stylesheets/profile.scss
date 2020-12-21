@@ -1,22 +1,29 @@
 @import './variables';
 
-$image_size: 56px;
+$image_size: 150px;
 
-.profilePage {
-  margin-top: 24px;
+.profile {
 
-  &_user {
-    display: flex;
+    &_top {
+      border-bottom: solid black 1px;
+    }
 
     &_image {
       display: flex;
-      flex-direction: column;
       justify-content: center;
+      text-align: center;
+      margin-bottom: 50px;
+
 
       img {
+        border-radius: 50%;
         width: $image_size;
         height: $image_size;
       }
+    }
+
+    &_content {
+      margin-top: 50px;
     }
 
     &_basicInfo {
@@ -29,12 +36,12 @@ $image_size: 56px;
       justify-content: center;
       font-size: 12px;
       border-radius: 4px;
-      border: 1px solid $primary-color;
+      border: 1px solid $header-color;
       font-weight: bold;
       padding: 0px 8px;
 
       a {
-        color: $primary-color;
+        color: $header-color;
       }
     }
 
@@ -52,5 +59,5 @@ $image_size: 56px;
     &_introduction {
       font-size: 12px;
     }
-  }
+  
 }

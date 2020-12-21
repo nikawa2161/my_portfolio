@@ -1,15 +1,38 @@
-<div class="container profilePage">
-  <div class="profilePage_user">
-    <div class="profilePage_user_image">
-      <%= image_tag company.avatar_image %>
+<div class="container profile">
+  <div class="row">
+    <div class="col text-center profile_top">
+      <h1>My Page</h1>
+      <h3>マイページ</h3>
     </div>
-    <div class="profilePage_user_basicInfo">
-      <div class="profilePage_user_name">
-        <div class="profilePage_user_displayName">
-          <%= company.display_name %>
-        </div>
-
-        <div class="profilePage_user_actionButton">
+  </div>
+  <div class="row profile_content">
+    <div class="col-lg-4">
+      <div class="profile_image">
+      <%= image_tag company.avatar_image %>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th scope="row">企業名</th>
+            <td><%= company.display_name %></td>
+          </tr>
+          <tr>
+            <th scope="row">何してる</th>
+            <td><%= company.company_profile&.introduction %></td>
+          </tr>
+          <tr>
+            <th scope="row">場所</th>
+            <td><%= company.company_profile&.address %></td>
+          </tr>
+          <tr>
+            <th scope="row">電話番号</th>
+            <td><%= company.company_profile&.phone_number %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="profilePage_user_actionButton btn">
           <% if company == current_company%>
             <%= link_to 'Edit', edit_company_profile_path %>
           <% else %>
@@ -21,16 +44,10 @@
           <% end %>
         </div>
     </div>
-    <div class="profilePage_user_introduction">
-      <%= company.company_profile&.introduction %>
-      <%= company.company_profile&.address %>
-      <%= company.company_profile&.phone_number %>
-    </div>
-    <div class="profilePage_user_introduction">
-      <%= company.company_profile&.address %>
-    </div>
-    <div class="profilePage_user_introduction">
-      <%= company.company_profile&.phone_number %>
-    </div>
+
+
   </div>
+
+
+
 </div>

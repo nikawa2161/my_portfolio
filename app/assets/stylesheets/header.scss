@@ -1,15 +1,18 @@
 @import 'variables';
 
 $avatar-size: 40px;
-$header-padding-y: 16px;
+$header-padding-y: 5px;
 $back-icon-size: 16px;
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  background-color: $primary-color;
-  padding: $header-padding-y 16px;
+  background-color: $header-color;
+  padding: $header-padding-y;
   font-weight: bold;
+  
+  &_navbar {
+    display: flex;
+    justify-content: space-between;
+  }
 
   &_logos {
     min-width: 0;
@@ -32,5 +35,14 @@ $back-icon-size: 16px;
     width: $avatar-size;
     height: $avatar-size;
     border-radius: 100%;
+  }
+
+  .open, .close {
+    display: none;
+  }
+
+  input {
+    position: absolute;
+    // right:-50vw;
   }
 }

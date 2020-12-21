@@ -1,0 +1,79 @@
+
+
+<div class="card article">
+  <div class="card-header text-center">
+    <h1 class="article_title"><%= @article.title %></h1>
+  </div>
+  <% if @article.eyecatch.attached? %>
+      <div class="card_image">
+        <%= image_tag @article.eyecatch %>
+      </div>
+    <% end %>
+  
+  <div class="card-body">
+    <% if company_signed_in? && current_company.has_written?(@article) %>
+      <div class="article_detail_actions">
+        <div class="dropdown">
+          <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag 'actions.svg' %>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to '編集する', edit_article_path(@article), class:"dropdown-item" %>
+            <%= link_to '削除する', article_path(@article), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }, class:"dropdown-item" %>
+          </div>
+        </div>
+
+
+      </div>
+    <% end %>
+    <div class="article_content">
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th scope="row">応募職種</th>
+            <td><%= @article.Job_title %></td>
+          </tr>
+          <tr>
+            <th scope="row">雇用形態</th>
+            <td><%= @article.employment %></td>
+          </tr>
+          <tr>
+            <th scope="row">学歴</th>
+            <td><%= @article.education %></td>
+          </tr>
+          <tr>
+            <th scope="row">必須免許</th>
+            <td><%= @article.licensure %></td>
+          </tr>
+          <tr>
+            <th scope="row">応募書類</th>
+            <td><%= @article.documents %></td>
+          </tr>
+          <tr>
+            <th scope="row">選考方法</th>
+            <td><%= @article.selection %></td>
+          </tr>
+          <tr>
+            <th scope="row">選考場所</th>
+            <td><%= @article.screening_location %></td>
+          </tr>
+          <p><%= @article.created_at %></p>
+          <p><%= @article.updated_at %></p>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+  <div class="card-footer text-muted">
+    <div class="article_pro">
+      <%= link_to relationship_path(@article.company) do %>
+        <%= image_tag @article.company.avatar_image %>
+      <% end %>
+      <div>
+        <p><%= @article.company.display_name %></p>
+        <p><%= @article.display_created_at %></p>
+      </div>
+    </div>
+ 
+  </div>
+</div>

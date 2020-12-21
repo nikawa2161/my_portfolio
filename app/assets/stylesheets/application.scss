@@ -1,14 +1,30 @@
-@import 'bootstrap';
+// @import 'bootstrap';
 @import 'variables';
 @import 'header';
-@import 'form';
+// @import 'form';
 @import 'card';
 @import 'buttons';
-@import 'flash';
+// @import 'flash';
 @import 'article';
-@import 'common';
+// @import 'common';
 @import 'profile';
 
+body {
+  padding-top: 66px; 
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  
+}
+main {
+  flex: 1;
+  padding-top: 20px;
+  background-color: $base-bg-color;
+
+  font-size: $fontsize;
+}
 a {
   text-decoration: none;
   color: black;
@@ -19,10 +35,12 @@ a {
 }
 
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 980px;
   margin: auto;
+  padding: 0px;
 }
+
 
 
 
@@ -30,29 +48,56 @@ a {
 
 .top {
 
-  .top-content {
-    border: 1px  solid black;
-    padding: 0 30px;
+  &_image {
+
+    .card-img {
+
+    width: 100%;
+    height: auto;
+    opacity: 0.7; 
+    padding: 0;
+
+    }
+
+    h2 {
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      -ms-transform: translate(-50%,-50%);
+      -webkit-transform: translate(-50%,-50%);
+      transform: translate(-50%,-50%);
+      color: white;
+      font-weight: bold; 
+      font-size: 2em;
+      padding: 0;
+    }
   }
 
-  .top-left {
+  &_about{
+    width: 100%;
+    margin: 0;
+  }
+
+  
+
+  &_left {
     box-sizing: border-box;
-    width: 48%;
+    width: 100%;
     border: 1px  solid black;
-    float: left;
-    padding: 0 30px;
+    padding: 50px;
+
 
     h2 {
     text-align: center;
     }
   }
 
-  .top-right {
+  &_right {
     box-sizing: border-box;
-    width: 48%;
+    width: 100%;
     border: 1px  solid black;
-    float: right;
-    padding: 0 30px;
+    padding: 50px;
+
 
     h2 {
       text-align: center;
@@ -90,7 +135,7 @@ a {
     font-size: 14px;
     height: 45px;
     text-align: center;
-    background: $base-bg-color;
+    background: $light-bg-color;
     color: #FFFFFF;
     cursor: pointer;
     border: none;
@@ -111,94 +156,11 @@ a {
   height: 64px;
   border-radius: 100%;
   text-align: center;
-  background-color: $primary-color;
+  background-color: $header-color;
   color: white;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 
   i {
     margin-top: 22px;
   }
-}
-
-// ハンバーガーメニュー
-header {
-  padding:10px;
-  background: skyblue;
-}
-
-#nav-drawer {
-  position: relative;
-}
-
-/*チェックボックス等は非表示に*/
-.nav-unshown {
-  display:none;
-}
-
-/*アイコンのスペース*/
-#nav-open {
-  display: inline-block;
-  width: 30px;
-  height: 22px;
-  vertical-align: middle;
-}
-
-/*ハンバーガーアイコンをCSSだけで表現*/
-#nav-open span, #nav-open span:before, #nav-open span:after {
-  position: absolute;
-  height: 3px;/*線の太さ*/
-  width: 25px;/*長さ*/
-  border-radius: 3px;
-  background: #555;
-  display: block;
-  content: '';
-  cursor: pointer;
-}
-#nav-open span:before {
-  bottom: -8px;
-}
-#nav-open span:after {
-  bottom: -16px;
-}
-
-/*閉じる用の薄黒カバー*/
-#nav-close {
-  display: none;/*はじめは隠しておく*/
-  position: fixed;
-  z-index: 99;
-  top: 0;/*全体に広がるように*/
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  opacity: 0;
-  transition: .3s ease-in-out;
-}
-
-/*中身*/
-#nav-content {
-  overflow: auto;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;/*最前面に*/
-  width: 90%;/*右側に隙間を作る（閉じるカバーを表示）*/
-  max-width: 1200px;/*最大幅（調整してください）*/
-  height: 72px;
-  background: #fff;/*背景色*/
-  transition: .3s ease-in-out;/*滑らかに表示*/
-  -webkit-transform: translateY(-105%);
-  transform: translateY(-105%);/*左に隠しておく*/
-}
-
-/*チェックが入ったらもろもろ表示*/
-#nav-input:checked ~ #nav-close {
-  display: block;/*カバーを表示*/
-  opacity: .8;
-}
-
-#nav-input:checked ~ #nav-content {
-  -webkit-transform: translateY(0%);
-  transform: translateY(0%);/*中身を表示（右へスライド）*/
-  box-shadow: 6px 0 25px rgba(0,0,0,.15);
 }
