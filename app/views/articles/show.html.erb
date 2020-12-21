@@ -27,20 +27,43 @@
       </div>
     <% end %>
     <div class="article_content">
-        <p><%= @article.Job_title %></p>
-        <p><%= @article.employment %></p>
-        <p><%= @article.education %></p>
-        <p><%= @article.licensure %></p>
-        <p><%= @article.documents %></p>
-        <p><%= @article.selection %></p>
-        <p><%= @article.screening_location %></p>
-        <p><%= @article.created_at %></p>
-        <p><%= @article.updated_at %></p>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th scope="row">応募職種</th>
+            <td><%= @article.Job_title %></td>
+          </tr>
+          <tr>
+            <th scope="row">雇用形態</th>
+            <td><%= @article.employment %></td>
+          </tr>
+          <tr>
+            <th scope="row">学歴</th>
+            <td><%= @article.education %></td>
+          </tr>
+          <tr>
+            <th scope="row">必須免許</th>
+            <td><%= @article.licensure %></td>
+          </tr>
+          <tr>
+            <th scope="row">応募書類</th>
+            <td><%= @article.documents %></td>
+          </tr>
+          <tr>
+            <th scope="row">選考方法</th>
+            <td><%= @article.selection %></td>
+          </tr>
+          <tr>
+            <th scope="row">選考場所</th>
+            <td><%= @article.screening_location %></td>
+          </tr>
+          <p><%= @article.created_at %></p>
+          <p><%= @article.updated_at %></p>
+        </tbody>
+      </table>
     </div>
     
   </div>
-
-
   <div class="card-footer text-muted">
     <div class="article_pro">
       <%= link_to relationship_path(@article.company) do %>
