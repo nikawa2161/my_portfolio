@@ -66,3 +66,26 @@ $container-padding: 16px;
     }
   }
 }
+
+
+.article_pro {
+  padding-top: 10px;
+  display: flex;
+  font-size: 12px;
+  position: relative;
+
+  img {
+    cursor: pointer;
+    width: $avatar-size;
+    height: $avatar-size;
+    border-radius: 100%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+
+  }
+  
+  &_actions {
+    right: 0px;
+    position: absolute;
+  }
+}
