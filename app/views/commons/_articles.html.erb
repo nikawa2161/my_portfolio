@@ -1,5 +1,52 @@
 <div class="container">
-  <% articles.each do |article| %>
-    <%= render 'commons/article', article: article %>
+  <div class="row">
+    <div class="col">
+      <% if user_signed_in? %>
+      <p><%= current_user.display_name%>がログインしてます</p>
+      <br>
+      <h2>企業一覧</h2>
+      <br>
+
+    <!-- もしチャットルームがあったらそのチャットページへ。なければ新たなチャットルームを作成 -->
+  <% @companies.each do |company| %>
+    <%= company.display_name %>
+    <% if @company_ids.include?(company.id) %>
+      <br>
+      <%= link_to "チャットへ", room_path(current_user.rooms.find_by(company_id: company.id)) %><br>
+    <% else %>
+      <%= form_for Room.new do |f| %>
+        <%= f.hidden_field :company_id, :value => company.id %>
+        <%= f.submit %>
+      <% end %>
+    <% end %>
   <% end %>
+<% elsif company_signed_in? %>
+  <p><%= current_company.display_name %>がログインしてます</p>
+  <br>
+  <h2>ユーザー一覧</h2>
+  <br>
+  <% @users.each do |user| %>
+    <p><%= user.display_name %></p>
+     <% if @user_ids.include?(user.id) %>
+      <br>
+      <%= link_to "チャットへ", room_path(current_company.rooms.find_by(user_id: user.id)) %><br>
+    <% else %>
+      <%= form_for Room.new do |f| %>
+        <%= f.hidden_field :user_id, :value => user.id %>
+        <%= f.submit %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+<!--ログインしてなかったら-->
+<% else %>
+  <h3>ユーザー</h3>
+<% end %>
+    </div>
+    <div class="col-10">
+      <% articles.each do |article| %>
+        <%= render 'commons/article', article: article %>
+      <% end %>
+    </div>
+  </div>
 </div>
