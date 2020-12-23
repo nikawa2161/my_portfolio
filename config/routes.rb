@@ -23,11 +23,15 @@ Rails.application.routes.draw do
   resources :relationships, only: [:show] do
   resources :follows, only: [:create]
   resources :unfollows, only: [:create]
-end
+  end
 
   resource :profile, only: [:show, :edit, :update]
   resource :company_profile, only: [:show, :edit, :update]
 
   resources :favorites, only: [:index]
+
+  resources :rooms, only:[:show, :create] do
+    resources :messages, only: [:create]
+  end
 
 end

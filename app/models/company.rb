@@ -9,6 +9,7 @@ class Company < ApplicationRecord
   has_many :relationships, dependent: :destroy
   has_many :followers, through: :relationships, source: :user
 
+  has_many :rooms
 
   has_one :company_profile, dependent: :destroy
 
