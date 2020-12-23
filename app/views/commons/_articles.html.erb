@@ -1,5 +1,54 @@
 <div class="container">
-  <% articles.each do |article| %>
-    <%= render 'commons/article', article: article %>
-  <% end %>
+  <div class="row">
+    <div class="col list">
+      <% if user_signed_in? %>
+        <div class='list_profile'>
+          <p><%= current_user.display_name%>がログインしてます</p>
+          <%= image_tag current_user.avatar_image %>
+        </div>
+        <div class='list_user'>
+          <h2>企業一覧</h2>
+          <% @companies.each do |company| %>
+            <%= company.display_name %>
+            <% if @company_ids.include?(company.id) %>
+              <br>
+              <%= link_to "チャットへ", room_path(current_user.rooms.find_by(company_id: company.id)) %><br>
+            <% else %>
+              <%= form_for Room.new do |f| %>
+                <%= f.hidden_field :company_id, :value => company.id %>
+                <%= f.submit %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+
+      <% elsif company_signed_in? %>
+        <div class='list_profile'>
+          <%= image_tag current_company.avatar_image %>
+          <p><%= current_company.display_name %>がログインしてます</p>
+        </div>
+        <div class='list_user'>
+          <h2>ユーザー一覧</h2>
+          <% @users.each do |user| %>
+            <h5><%= user.display_name %></h5>
+            <% if @user_ids.include?(user.id) %>
+              <%= link_to "チャットへ", room_path(current_company.rooms.find_by(user_id: user.id)) %>
+            <% else %>
+              <%= form_for Room.new do |f| %>
+                <%= f.hidden_field :user_id, :value => user.id %>
+                <%= f.submit %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      <% else %>
+        <h3>ユーザー</h3>
+      <% end %>
+    </div>
+    <div class="col-10">
+      <% articles.each do |article| %>
+        <%= render 'commons/article', article: article %>
+      <% end %>
+    </div>
+  </div>
 </div>

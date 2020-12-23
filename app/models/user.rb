@@ -11,6 +11,8 @@ class User < ApplicationRecord
    has_many :relationships, dependent: :destroy
    has_many :followings, through: :relationships, source: :company
 
+   has_many :rooms
+
    delegate :birthday, :age, :gender, to: :profile, allow_nil: true
 
   def has_liked?(article)

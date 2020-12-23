@@ -164,3 +164,56 @@ a {
     margin-top: 22px;
   }
 }
+
+
+// ROOM
+
+.left-message{
+  text-align: left;
+}
+
+.right-message{
+  text-align: right;
+}
+
+// listボタン
+
+.list {
+  &_profile{
+    padding-top: 12px;
+    cursor: pointer;
+    display: flex;
+    font-size: 10px;
+    img {
+      width: $avatar-size;
+      height: $avatar-size;
+      border-radius: 100%;
+      margin-right: 8px;
+    }
+  }
+}
+
+//message
+
+.message {
+
+  &_top {
+    border-bottom: solid black 1px;
+    padding-bottom: 50px;
+  
+
+    &_image {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      
+
+
+      img {
+        border-radius: 50%;
+        width: $image_size;
+        height: $image_size;
+      }
+    }
+  }
+}
