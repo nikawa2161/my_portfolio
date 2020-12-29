@@ -1,41 +1,59 @@
 
 <div class="container">
-  <% @users.each do |user| %>
-   
-<div class="card mb-3 container">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <div class="profile_image mt-5">
-      <% if user.avatar&.attached? %>
-        <%= image_tag user.avatar %>
-      <% else %>
-        <%= image_tag 'default-avatar' %>
-      <% end %>
+  <div class="row">
+    <div class="col list">
+      <div class='list_profile'>
+        <%= image_tag current_company.avatar_image %>
+        <p><%= current_company.display_name %>がログインしてます</p>
+      </div>
+      <div class='list_user'>
+        <h2>ユーザー一覧</h2>
+        <% @dms.each do |dm| %>
+          <h5><%= dm.display_name %></h5>
+          <% if @dm_ids.include?(dm.id) %>
+            <%= link_to "チャットへ", room_path(current_company.rooms.find_by(user_id: dm.id)) %>
+          <% else %>
+            <%= form_for Room.new do |f| %>
+              <%= f.hidden_field :dm_id, :value => dm.id %>
+              <%= f.submit %>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
     </div>
-    <div class="col-md-8">
-      <div class="card-body mt-md-5">
-        <h5 class="card-title"><%= user.nickname %></h5>
-        <table class="table table-borderless">
-        <tbody>
-            <th scope="row">年齢</th>
-            <td><%= user.age || '年齢未設定' %></td>
-          </tr>
-          <tr>
-            <th scope="row">性別</th>
-            <td><%= I18n.t("enum.genders.#{user.gender || 'unknown'}") %></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="col-10">
+
+    <% @users.each do |user| %>
+      <div class="card mb-3 container">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <div class="profile_image mt-5">
+            <% if user.avatar&.attached? %>
+              <%= image_tag user.avatar %>
+            <% else %>
+              <%= image_tag 'default-avatar' %>
+            <% end %>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body mt-md-5">
+              <h5 class="card-title"><%= user.nickname %></h5>
+              <table class="table table-borderless">
+                <tbody>
+                    <th scope="row">年齢</th>
+                    <td><%= user.age || '年齢未設定' %></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">性別</th>
+                    <td><%= I18n.t("enum.genders.#{user.gender || 'unknown'}") %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
+    <% end %>
     </div>
   </div>
 </div>
-
-
-
-
-  <% end %>
-
-</div>
-
