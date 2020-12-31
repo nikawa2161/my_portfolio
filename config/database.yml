@@ -81,5 +81,6 @@ test:
 production:
   <<: *default
   database: my_portfolio_production
-  username: my_portfolio
+  username: postgres
   password: <%= ENV['MY_PORTFOLIO_DATABASE_PASSWORD'] %>
+  host: <%= ENV['MY_PORTFOLIO_DATABASE_HOSTNAME'] %>
