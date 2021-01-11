@@ -61,8 +61,8 @@
         <li class="nav-item active ml-auto">
           <%= link_to '法人登録', new_company_registration_path, class: "nav-link" %>
         </li>
-        <li class="nav-item active ml-auto">
-          <a href='#' class="nav-link">簡単ログイン</a>
+         <li class="nav-item active ml-auto">
+          <%= link_to 'ゲストログイン（閲覧用）', top_guest_sign_in_path, method: :post, class: "nav-link" %>
         </li>
         <% end %>
       </ul>
