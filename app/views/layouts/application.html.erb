@@ -53,16 +53,19 @@
           <%= link_to 'ユーザーログイン', new_user_session_path, class: "nav-link" %>
         </li>
         <li class="nav-item active ml-auto">
+          <%= link_to 'ユーザー（観覧用）', top_guest_user_sign_in_path, method: :post, class: "nav-link" %>
+        </li>
+        <li class="nav-item active ml-auto">
           <%= link_to '法人ログイン', new_company_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item active ml-auto">
+          <%= link_to '法人（観覧用）', top_guest_company_sign_in_path, method: :post, class: "nav-link" %>
         </li>
         <li class="nav-item active ml-auto">
           <%= link_to 'ユーザー登録', new_user_registration_path, class: "nav-link" %>
         </li>
         <li class="nav-item active ml-auto">
           <%= link_to '法人登録', new_company_registration_path, class: "nav-link" %>
-        </li>
-         <li class="nav-item active ml-auto">
-          <%= link_to 'ゲストログイン（閲覧用）', top_guest_sign_in_path, method: :post, class: "nav-link" %>
         </li>
         <% end %>
       </ul>
