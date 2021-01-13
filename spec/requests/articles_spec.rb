@@ -10,4 +10,27 @@ RSpec.describe 'Articles', type: :request do
       expect(response).to have_http_status(200)
     end
   end
+
+  describe 'POST /articles' do
+    context 'ログインしている場合' do
+      before do
+        sign_in company
+      end
+
+      it '記事が保存される' do
+        article_params = attributes_for(:article)
+        post articles_path({article: article_params})
+        expect(response).to have_http_status(302)
+        expect(Article.last.title).to eq(article_params[:title])
+        expect(Article.last.body).to eq(article_params[:body])
+        expect(Article.last.Job_title).to eq(article_params[:Job_title])
+        expect(Article.last.employment).to eq(article_params[:employment])
+        expect(Article.last.education).to eq(article_params[:education])
+        expect(Article.last.licensure ).to eq(article_params[:licensure ])
+        expect(Article.last.documents).to eq(article_params[:documents])
+        expect(Article.last.selection).to eq(article_params[:selection])
+        expect(Article.last.screening_location ).to eq(article_params[:screening_location ])
+      end
+    end
+  end
 end
