@@ -1,12 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-  let!(:company) do
-    Company.create!({
-      email: 'test@example.com',
-      password: 'password'
-    })
-  end
+  let!(:company) { create(:company) }
+  
   context '必須項目が入力されている場合'do
    
 
