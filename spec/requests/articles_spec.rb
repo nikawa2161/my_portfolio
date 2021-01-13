@@ -32,5 +32,13 @@ RSpec.describe 'Articles', type: :request do
         expect(Article.last.screening_location ).to eq(article_params[:screening_location ])
       end
     end
+
+    context 'ログインしていない場合' do
+      it 'ログイン画面に遷移する' do
+        article_params = attributes_for(:article)
+        post articles_path({article: article_params})
+        expect(response).to redirect_to(new_company_session_path)
+      end
+    end
   end
 end
