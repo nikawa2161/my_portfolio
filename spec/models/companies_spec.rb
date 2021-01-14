@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Companies', type: :request do
 
-  context 'バリデーション' do
+  context 'バリデーションの検証' do
 
     it '姓、名、メール、パスワードがある場合、有効である' do
       company = FactoryBot.build(:company)

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
 
-  context 'バリデーション' do
+  context 'バリデーションの検証' do
 
     it 'メールアドレス、パスワードがある場合、有効である' do
       user = FactoryBot.build(:user)
