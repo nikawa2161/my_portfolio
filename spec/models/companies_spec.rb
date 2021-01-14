@@ -4,7 +4,7 @@ RSpec.describe 'Companies', type: :request do
 
   context 'バリデーションの検証' do
 
-    it '姓、名、メール、パスワードがある場合、有効である' do
+    it 'メール、パスワードがある場合、有効である' do
       company = FactoryBot.build(:company)
       expect(company).to be_valid
     end
@@ -13,6 +13,12 @@ RSpec.describe 'Companies', type: :request do
       company = FactoryBot.build(:company, email: nil)
       company.valid?
       expect(company.errors[:email]).to include('を入力してください')
+    end
+
+    it '無効なメールアドレスを登録した場合、無効である' do
+      company = FactoryBot.build(:company, email: 'mukou')
+      company.valid?
+      expect(company.errors[:email]).to include('は不正な値です')
     end
 
     it '重複したメールアドレスの場合、無効である' do
@@ -26,6 +32,18 @@ RSpec.describe 'Companies', type: :request do
       company = FactoryBot.build(:company, password: nil)
       company.valid?
       expect(company.errors[:password]).to include('を入力してください')
+    end
+
+    it 'パスワードが６文字以上の場合、有効である' do
+      company = FactoryBot.build(:company, password: Faker::Lorem.characters(number: 6))
+      company.valid?
+      expect(company).to be_valid
+    end
+    
+    it 'パスワードが６文字未満の場合、無効である' do
+      company = FactoryBot.build(:company, password: Faker::Lorem.characters(number: 5))
+      company.valid?
+      expect(company.errors[:password]).to include('は6文字以上で入力してください')
     end
 
   end

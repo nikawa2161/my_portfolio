@@ -88,7 +88,7 @@ RSpec.describe Article, type: :model do
     let!(:article) { build(:article, documents: nil, company: company) }
     before do
       article.save
-    end  
+    end
     it'記事が保存できない'do
       expect(article.errors.messages[:documents]).to include("を入力してください")
     end
@@ -103,7 +103,7 @@ RSpec.describe Article, type: :model do
       expect(article.errors.messages[:selection]).to include("を入力してください")
     end
   end
-  
+
   context '選考場所が未入力の場合'do
     let!(:article) { build(:article, screening_location: nil, company: company) }
     before do
