@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Article, type: :model do
+RSpec.describe Profile, type: :model do
   let!(:user) { create(:user) }
 
   context '必須項目が入力されている場合'do
