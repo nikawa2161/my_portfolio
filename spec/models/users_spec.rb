@@ -4,7 +4,7 @@ RSpec.describe 'Users', type: :request do
 
   context 'バリデーション' do
 
-    it '姓、名、メール、パスワードがある場合、有効である' do
+    it 'メールアドレス、パスワードがある場合、有効である' do
       user = FactoryBot.build(:user)
       expect(user).to be_valid
     end
