@@ -13,9 +13,8 @@ class Article < ApplicationRecord
   validates :documents, presence: true
   validates :selection, presence: true
   validates :screening_location, presence: true
-  
+
   has_many :likes, dependent: :destroy
   belongs_to :company
-  
 
 end

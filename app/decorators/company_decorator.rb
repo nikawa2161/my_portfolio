@@ -9,7 +9,7 @@ module CompanyDecorator
   def prepare_company_profile
     company_profile || build_company_profile
   end
-  
+
   def avatar_image
     if company_profile&.avatar&.attached?
       company_profile.avatar

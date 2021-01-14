@@ -1,10 +1,10 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show]
   before_action :authenticate_company!, only: [:new, :create, :edit, :update, :destroy]
-  
+
   def index
     @articles = Article.all
-    
+
     if user_signed_in?
       @companies = Company.all
       rooms = current_user.rooms
@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
         @user_ids << r.user_id
       end
     end
-    
+
   end
 
   def show
