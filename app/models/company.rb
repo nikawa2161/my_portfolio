@@ -23,6 +23,4 @@ class Company < ApplicationRecord
     articles.exists?(id: article.id)
   end
 
- 
-  
 end

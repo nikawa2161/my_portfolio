@@ -7,17 +7,17 @@ class RoomsController < ApplicationController
       if @room.user.id == current_user.id
         @company = @room.company
       else
-        redirect_to "/"
+        redirect_to '/'
       end
     elsif company_signed_in?
       if @room.company.id == current_company.id
         @user = @room.user
       else
-        redirect_to "/"
+        redirect_to '/'
       end
 
     else
-      redirect_to "/"
+      redirect_to '/'
     end
   end
 
@@ -30,13 +30,13 @@ class RoomsController < ApplicationController
       @room = Room.new(room_user_params)
       @room.company_id = current_company.id
     else
-      redirect_to "/"
+      redirect_to '/'
     end
 
     if @room.save
-      redirect_to :action => "show", :id => @room.id
+      redirect_to :action => 'show', :id => @room.id
     else
-      redirect_to "/"
+      redirect_to '/'
     end
   end
 

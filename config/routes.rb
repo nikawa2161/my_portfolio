@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   devise_for :companies, controllers: {
     sessions:      'companies/sessions',
     passwords:     'companies/passwords',
@@ -20,7 +20,6 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest_user'
   end
 
- 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'top#index'
   # post '/top/guest_user_sign_in', to: 'top#new_guest_user'
