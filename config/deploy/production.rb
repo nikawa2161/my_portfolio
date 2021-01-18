@@ -1,3 +1,4 @@
+set :rails_env, 'production'
 server '54.199.8.133', user: 'ec2-user', roles: %w{app db web}
 
 set :ssh_options, {
