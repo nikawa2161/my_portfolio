@@ -19,7 +19,3 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 import $ from 'jquery'
 import Axios from 'axios'
-
-document.addEventListener('turbolinks:load', () => {
- 
-})

@@ -78,9 +78,19 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+# production:
+#   <<: *default
+#   database: my_portfolio_production
+#   username: postgres
+#   password: <%= ENV['MY_PORTFOLIO_DATABASE_PASSWORD'] %>
+#   host:     <%= ENV['MY_PORTFOLIO_DATABASE_HOSTNAME'] %>
+#   port:     5432
+
 production:
   <<: *default
   database: my_portfolio_production
-  username: postgres
-  password: <%= ENV['MY_PORTFOLIO_DATABASE_PASSWORD'] %>
-  host: <%= ENV['MY_PORTFOLIO_DATABASE_HOSTNAME'] %>
+  username: <%= Rails.application.credentials.db[:username] %>
+  password: <%= Rails.application.credentials.db[:password] %>
+  host:     <%= Rails.application.credentials.db[:host] %>
+  port:     5432
+  
