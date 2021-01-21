@@ -1,14 +1,12 @@
-
-
 <div class="card article">
   <div class="card-header text-center">
     <h1 class="article_title"><%= @article.title %></h1>
   </div>
   <% if @article.eyecatch.attached? %>
-      <div class="card_image">
-        <%= image_tag @article.eyecatch %>
-      </div>
-    <% end %>
+    <div class="card_image">
+      <%= image_tag @article.eyecatch %>
+    </div>
+  <% end %>
   
   <div class="card-body">
     <% if company_signed_in? && current_company.has_written?(@article) %>
