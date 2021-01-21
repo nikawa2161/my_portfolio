@@ -11,6 +11,13 @@ RSpec.describe 'Articles', type: :request do
     end
   end
 
+  describe 'GET /article' do
+    it '200ステータスが返ってくる' do
+      get article_path(articles)
+      expect(response).to have_http_status(200)
+    end
+  end
+
   describe 'POST /articles' do
     context 'ログインしている場合' do
       before do
