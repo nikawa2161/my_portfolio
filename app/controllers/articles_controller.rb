@@ -5,23 +5,23 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
 
-    if user_signed_in?
-      @companies = Company.all
-      rooms = current_user.rooms
-      #自分が入ってるroomの相手のidを格納する
-      @company_ids = []
-      rooms.each do |r|
-        @company_ids << r.company_id
-      end
-    elsif company_signed_in?
-      @users = User.all
-      rooms = current_company.rooms
-      #自分が入ってるroomの相手のidを格納する
-      @user_ids = []
-      rooms.each do |r|
-        @user_ids << r.user_id
-      end
-    end
+    # if user_signed_in?
+    #   @companies = Company.all
+    #   rooms = current_user.rooms
+    #   #自分が入ってるroomの相手のidを格納する
+    #   @company_ids = []
+    #   rooms.each do |r|
+    #     @company_ids << r.company_id
+    #   end
+    # elsif company_signed_in?
+    #   @users = User.all
+    #   rooms = current_company.rooms
+    #   #自分が入ってるroomの相手のidを格納する
+    #   @user_ids = []
+    #   rooms.each do |r|
+    #     @user_ids << r.user_id
+    #   end
+    # end
 
   end
 
