@@ -5,6 +5,10 @@ module ArticleDecorator
     I18n.l(self.created_at, format: :default)
   end
 
+  def display_updated_at
+    I18n.l(self.updated_at, format: :default)
+  end
+
   def like_count
     likes.count
   end

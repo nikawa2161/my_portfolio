@@ -7,53 +7,78 @@ $avatar-size: 32px;
   cursor: pointer;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 
-  &_title {
-    font-size: 22px;
-    margin-bottom: 8px;
-  }
-
-  &_heart {
-    display: flex;
-
-    img {
-      width: $heart-size;
-      height: $heart-size;
+  &_main {
+    
+    &_image {
+      height: 300px;
+      position: relative;
+      overflow: hidden;
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 100%;
+      }
     }
-    span {
-      margin-left: 8px;
+
+    &_job {
+      margin: 10px;
+      font-size: 15px;
+      color: #6A6E71;
+    }
+    
+    &_title {
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: #222222;
+    }
+    
+    &_text {
       font-size: 12px;
-      font-weight: bold;
-      color: $header-color;
-      line-height: $heart-size;
+      color: #9DA0A4;
+      
     }
+    
   }
-  &_detail {
-    padding-top: 12px;
-    cursor: pointer;
-    display: flex;
-    font-size: 10px;
-    img {
-      width: $avatar-size;
-      height: $avatar-size;
-      border-radius: 100%;
-      margin-right: 8px;
+  &_bottom {
+    padding-top: 20px;
+
+    &_detail {
+      
+      cursor: pointer;
+      display: flex;
+      font-size: 12px;
+      img {
+        width: $avatar-size;
+        height: $avatar-size;
+        border-radius: 100%;
+        margin-right: 8px;
+      }
     }
+
+    &_heart {
+      display: flex;
+      padding-top: 2px;
+      
+      img {
+        width: $heart-size;
+        height: $heart-size;
+      }
+      span {
+        margin-left: 8px;
+        font-size: 12px;
+        font-weight: bold;
+        color: $header-color;
+        line-height: $heart-size;
+      }
+    }
+
   }
   &_content {
     padding: 16px 16px;
   }
-  &_image {
-    height: 180px;
-    position: relative;
-    overflow: hidden;
-    img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      width: 100%;
-    }
-  }
+  
 }
