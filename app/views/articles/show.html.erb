@@ -2,11 +2,11 @@
   <div class="card-header text-center">
     <h1 class="article_title"><%= @article.title %></h1>
   </div>
-  <% if @article.eyecatch.attached? %>
-    <div class="card_image">
+  <div class="article_image">
+    <% if @article.eyecatch.attached? %>
       <%= image_tag @article.eyecatch %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
   
   <div class="card-body">
     <% if company_signed_in? && current_company.has_written?(@article) %>
@@ -25,7 +25,12 @@
       </div>
     <% end %>
     <div class="article_content">
-      <table class="table table-borderless">
+      <h3>仕事内容</h3>
+      <div><%= @article.body %></div>
+    </div>
+    <div class="article_recruit">
+      <h3>募集要項</h3>
+      <table class="table">
         <tbody>
           <tr>
             <th scope="row">応募職種</th>
@@ -55,10 +60,9 @@
             <th scope="row">選考場所</th>
             <td><%= @article.screening_location %></td>
           </tr>
-          <p><%= @article.created_at %></p>
-          <p><%= @article.updated_at %></p>
         </tbody>
       </table>
+          <div class="card_main_text">更新日：<%= @article.display_updated_at %></div>
     </div>
     
   </div>
@@ -69,7 +73,6 @@
       <% end %>
       <div>
         <p><%= @article.company.display_name %></p>
-        <p><%= @article.display_created_at %></p>
       </div>
     </div>
  
