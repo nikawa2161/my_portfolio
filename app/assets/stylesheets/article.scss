@@ -10,7 +10,7 @@ $container-padding: 16px;
   position: relative;
 
   &_image {
-    height: 180px;
+    height: 400px;
     position: relative;
     overflow: hidden;
     margin: $container-padding * -1 $container-padding * -1 16px;
@@ -28,7 +28,9 @@ $container-padding: 16px;
 
 
   &_title {
-    font-size: 22px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.38;
   }
 
   &_detail {
@@ -51,8 +53,19 @@ $container-padding: 16px;
     }
   }
 
-  &_content {
+  &_recruit {
     padding: 24px 0 32px;
+    font-size: 0.8rem;
+
+    tr {
+      padding: 1px;
+    }
+
+    th {
+      background-color: #44BC8E;
+      width: 125px;
+      color: #ffffff;
+    }
   }
 
   &_heart {
@@ -65,18 +78,6 @@ $container-padding: 16px;
       height: $heart-size;
     }
   }
-}
-
-.card-body {
-  .dropdown {
-    margin-right: 60px;
-
-    .dropdown-menu {
-      min-width: 3rem;
-    }
-  }
-
-
 }
 
 
