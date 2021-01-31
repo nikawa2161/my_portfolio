@@ -43,7 +43,8 @@ http://re-life.work/ <br>
 - テストコード
 
 # 設計書
-![インフラ１](https://user-images.githubusercontent.com/68407983/106387612-dd9fd200-641d-11eb-886b-e3df198aa6ba.png)
+![インフラ２](https://user-images.githubusercontent.com/68407983/106387734-76cee880-641e-11eb-97c3-b96895c93ad0.png)
+
 
 # 環境・使用技術
 
