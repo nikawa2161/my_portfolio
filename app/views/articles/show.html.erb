@@ -12,21 +12,18 @@
     <% if company_signed_in? && current_company.has_written?(@article) %>
       <div class="article_detail_actions">
         <div class="dropdown">
-          <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag 'actions.svg' %>
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <%= link_to '編集する', edit_article_path(@article), class:"dropdown-item" %>
-            <%= link_to '削除する', article_path(@article), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }, class:"dropdown-item" %>
+            <%= image_tag 'actions.svg', class: 'dropbtn' %>
+          <div class="dropdown-content mini">
+            <%= link_to '編集する', edit_article_path(@article) %>
+            <%= link_to '削除する', article_path(@article), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' } %>
           </div>
         </div>
-
-
       </div>
     <% end %>
+
     <div class="article_content">
       <h3>仕事内容</h3>
-      <div><%= @article.body %></div>
+      <div class="article_content_body"><%= @article.body %></div>
     </div>
     <div class="article_recruit">
       <h3>募集要項</h3>
@@ -62,19 +59,32 @@
           </tr>
         </tbody>
       </table>
-          <div class="card_main_text">更新日：<%= @article.display_updated_at %></div>
+      <div class="card_main_text">更新日：<%= @article.display_updated_at %></div>
+      <% if user_signed_in? %>
+        <% if current_user.has_liked?(@article) %>
+          <div class="article_heart">
+            <%= link_to article_like_path(@article), data: { method: 'delete' } do %>
+              <%= image_tag 'heart-active.svg' %>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="article_heart">
+            <%= link_to article_like_path(@article), data: { method: 'post' } do %>
+              <%= image_tag 'heart.svg' %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
-    
   </div>
   <div class="card-footer text-muted">
-    <div class="article_pro">
-      <%= link_to relationship_path(@article.company) do %>
+    <%= link_to relationship_path(@article.company) do %>
+      <div class="article_pro">
         <%= image_tag @article.company.avatar_image %>
-      <% end %>
-      <div>
-        <p><%= @article.company.display_name %></p>
+        <div>
+          <p><%= @article.company.display_name %></p>
+        </div>
       </div>
-    </div>
- 
+    <% end %>
   </div>
 </div>
