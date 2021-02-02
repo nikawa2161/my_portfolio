@@ -25,6 +25,16 @@ main {
   font-size: $fontsize;
   padding-bottom: 30px;
 }
+
+.main {
+  flex: 1;
+  background-color: $base-bg-color;
+
+  font-size: $fontsize;
+  padding: 30px;
+
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -41,12 +51,30 @@ a {
   padding: 0px;
 }
 
+.user {
+  flex: 1;
+  font-size: $fontsize;
+  padding: 30px;
+  background-color: $user-bg-color;
+}
 
+.company {
+  flex: 1;
+  font-size: $fontsize;
+  padding: 30px;
+  background-color: $company-bg-color;
+
+}
 
 
 //TOP画面
 
 .top {
+  flex: 1;
+  background-color: $base-bg-color;
+
+  font-size: $fontsize;
+  padding-bottom: 30px;
 
   &_image {
 
@@ -105,9 +133,7 @@ a {
 
 //ログイン画面
 
-.user {
-  background-color: rgb(61, 61, 160);
-}
+
 
 .login {
 

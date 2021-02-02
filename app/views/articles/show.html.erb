@@ -1,90 +1,92 @@
-<div class="card article">
-  <div class="card-header text-center">
-    <h1 class="article_title"><%= @article.title %></h1>
-  </div>
-  <div class="article_image">
-    <% if @article.eyecatch.attached? %>
-      <%= image_tag @article.eyecatch %>
-    <% end %>
-  </div>
-  
-  <div class="card-body">
-    <% if company_signed_in? && current_company.has_written?(@article) %>
-      <div class="article_detail_actions">
-        <div class="dropdown">
-            <%= image_tag 'actions.svg', class: 'dropbtn' %>
-          <div class="dropdown-content mini">
-            <%= link_to '編集する', edit_article_path(@article) %>
-            <%= link_to '削除する', article_path(@article), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' } %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-
-    <div class="article_content">
-      <h3>仕事内容</h3>
-      <div class="article_content_body"><%= @article.body %></div>
+  <div class="main">
+  <div class="card article">
+    <div class="card-header text-center">
+      <h1 class="article_title"><%= @article.title %></h1>
     </div>
-    <div class="article_recruit">
-      <h3>募集要項</h3>
-      <table class="table">
-        <tbody>
-          <tr>
-            <th scope="row">応募職種</th>
-            <td><%= @article.Job_title %></td>
-          </tr>
-          <tr>
-            <th scope="row">雇用形態</th>
-            <td><%= @article.employment %></td>
-          </tr>
-          <tr>
-            <th scope="row">学歴</th>
-            <td><%= @article.education %></td>
-          </tr>
-          <tr>
-            <th scope="row">必須免許</th>
-            <td><%= @article.licensure %></td>
-          </tr>
-          <tr>
-            <th scope="row">応募書類</th>
-            <td><%= @article.documents %></td>
-          </tr>
-          <tr>
-            <th scope="row">選考方法</th>
-            <td><%= @article.selection %></td>
-          </tr>
-          <tr>
-            <th scope="row">選考場所</th>
-            <td><%= @article.screening_location %></td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="card_main_text">更新日：<%= @article.display_updated_at %></div>
-      <% if user_signed_in? %>
-        <% if current_user.has_liked?(@article) %>
-          <div class="article_heart">
-            <%= link_to article_like_path(@article), data: { method: 'delete' } do %>
-              <%= image_tag 'heart-active.svg' %>
-            <% end %>
-          </div>
-        <% else %>
-          <div class="article_heart">
-            <%= link_to article_like_path(@article), data: { method: 'post' } do %>
-              <%= image_tag 'heart.svg' %>
-            <% end %>
-          </div>
-        <% end %>
+    <div class="article_image">
+      <% if @article.eyecatch.attached? %>
+        <%= image_tag @article.eyecatch %>
       <% end %>
     </div>
-  </div>
-  <div class="card-footer text-muted">
-    <%= link_to relationship_path(@article.company) do %>
-      <div class="article_pro">
-        <%= image_tag @article.company.avatar_image %>
-        <div>
-          <p><%= @article.company.display_name %></p>
+    
+    <div class="card-body">
+      <% if company_signed_in? && current_company.has_written?(@article) %>
+        <div class="article_detail_actions">
+          <div class="dropdown">
+              <%= image_tag 'actions.svg', class: 'dropbtn' %>
+            <div class="dropdown-content mini">
+              <%= link_to '編集する', edit_article_path(@article) %>
+              <%= link_to '削除する', article_path(@article), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' } %>
+            </div>
+          </div>
         </div>
+      <% end %>
+
+      <div class="article_content">
+        <h3>仕事内容</h3>
+        <div class="article_content_body"><%= @article.body %></div>
       </div>
-    <% end %>
+      <div class="article_recruit">
+        <h3>募集要項</h3>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th scope="row">応募職種</th>
+              <td><%= @article.Job_title %></td>
+            </tr>
+            <tr>
+              <th scope="row">雇用形態</th>
+              <td><%= @article.employment %></td>
+            </tr>
+            <tr>
+              <th scope="row">学歴</th>
+              <td><%= @article.education %></td>
+            </tr>
+            <tr>
+              <th scope="row">必須免許</th>
+              <td><%= @article.licensure %></td>
+            </tr>
+            <tr>
+              <th scope="row">応募書類</th>
+              <td><%= @article.documents %></td>
+            </tr>
+            <tr>
+              <th scope="row">選考方法</th>
+              <td><%= @article.selection %></td>
+            </tr>
+            <tr>
+              <th scope="row">選考場所</th>
+              <td><%= @article.screening_location %></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="card_main_text">更新日：<%= @article.display_updated_at %></div>
+        <% if user_signed_in? %>
+          <% if current_user.has_liked?(@article) %>
+            <div class="article_heart">
+              <%= link_to article_like_path(@article), data: { method: 'delete' } do %>
+                <%= image_tag 'heart-active.svg' %>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="article_heart">
+              <%= link_to article_like_path(@article), data: { method: 'post' } do %>
+                <%= image_tag 'heart.svg' %>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="card-footer text-muted">
+      <%= link_to relationship_path(@article.company) do %>
+        <div class="article_pro">
+          <%= image_tag @article.company.avatar_image %>
+          <div>
+            <p><%= @article.company.display_name %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
