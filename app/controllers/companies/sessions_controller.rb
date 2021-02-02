@@ -28,7 +28,7 @@ class Companies::SessionsController < Devise::SessionsController
   def new_guest_company
     company = Company.guest
     sign_in company
-    redirect_to root_path, notice: 'ゲスト法人としてログインしました。'
+    redirect_to articles_path, notice: 'ゲスト法人としてログインしました。'
   end
 
 end
