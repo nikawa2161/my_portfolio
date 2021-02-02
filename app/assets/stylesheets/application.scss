@@ -23,6 +23,7 @@ main {
   background-color: $base-bg-color;
 
   font-size: $fontsize;
+  padding-bottom: 30px;
 }
 a {
   text-decoration: none;
@@ -67,7 +68,7 @@ a {
       transform: translate(-50%,-50%);
       color: $image-color;
       font-weight: bold; 
-      font-size: 3em;
+      font-size: 2rem;
       padding: 0;
     }
   }
@@ -103,7 +104,14 @@ a {
 
 
 //ログイン画面
+
+.user {
+  background-color: rgb(61, 61, 160);
+}
+
 .login {
+
+  
   
   h1 {
     text-align: center;
