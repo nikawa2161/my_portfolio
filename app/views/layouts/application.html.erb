@@ -13,82 +13,76 @@
   </head>
 
   <body>
-  <div class="fixed-top">
-  <header class="header">
-    <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light">
-      <%= link_to 'リライフ', articles_path, class: 'header_pageTitle text-primary' %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <div class="fixed-top">
+      <header class="header">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <%= link_to 'リライフ', articles_path, class: 'header_pageTitle text-primary' %>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-  
-    
-      <ul class="navbar-nav ml-auto">
-        <% if user_signed_in? %>
-        <li class="nav-item active ml-auto">
-          <%= link_to 'プロフィール', profile_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item active ml-auto">
-          <%= link_to 'フォロー一覧', following_list_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item active ml-auto">
-          <%= link_to 'お気に入り', favorites_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item active ml-auto">
-          <%= link_to 'ユーザーログアウト', destroy_user_session_path, class: "nav-link" %>
-        </li>
-        <% elsif company_signed_in? %>
-        <li class="nav-item active ml-auto">
-          <%= link_to 'プロフィール', company_profile_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item active ml-auto">
-          <%= link_to 'フォロワー一覧', follower_list_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item active ml-auto">
-          <%= link_to '法人ログアウト', destroy_company_session_path, class: "nav-link" %>
-        </li>
-        <% else %>
-        <li class="nav-item active ml-auto">
-          <%= link_to 'ユーザーログイン', new_user_session_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item active ml-auto">
-          <%= link_to 'ユーザー（観覧用）', users_guest_sign_in_path, method: :post, class: "nav-link" %>
-        </li>
-        <li class="nav-item active ml-auto">
-          <%= link_to '法人ログイン', new_company_session_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item active ml-auto">
-          <%= link_to '法人（観覧用）', companies_guest_sign_in_path, method: :post, class: "nav-link" %>
-        </li>
-        <li class="nav-item active ml-auto">
-          <%= link_to 'ユーザー登録', new_user_registration_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item active ml-auto">
-          <%= link_to '法人登録', new_company_registration_path, class: "nav-link" %>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+          
+              <ul class="navbar-nav ml-auto">
+                <% if user_signed_in? %>
+                <li class="nav-item active ml-auto">
+                  <%= link_to 'プロフィール', profile_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item active ml-auto">
+                  <%= link_to 'フォロー一覧', following_list_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item active ml-auto">
+                  <%= link_to 'お気に入り', favorites_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item active ml-auto">
+                  <%= link_to 'ユーザーログアウト', destroy_user_session_path, class: "nav-link" %>
+                </li>
+                <% elsif company_signed_in? %>
+                <li class="nav-item active ml-auto">
+                  <%= link_to 'プロフィール', company_profile_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item active ml-auto">
+                  <%= link_to 'フォロワー一覧', follower_list_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item active ml-auto">
+                  <%= link_to '法人ログアウト', destroy_company_session_path, class: "nav-link" %>
+                </li>
+                <% else %>
+                <li class="nav-item active ml-auto">
+                  <%= link_to 'ユーザーログイン', new_user_session_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item active ml-auto">
+                  <%= link_to 'ユーザー（閲覧用）', users_guest_sign_in_path, method: :post, class: "nav-link" %>
+                </li>
+                <li class="nav-item active ml-auto">
+                  <%= link_to '法人ログイン', new_company_session_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item active ml-auto">
+                  <%= link_to '法人（閲覧用）', companies_guest_sign_in_path, method: :post, class: "nav-link" %>
+                </li>
+                <li class="nav-item active ml-auto">
+                  <%= link_to 'ユーザー登録', new_user_registration_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item active ml-auto">
+                  <%= link_to '法人登録', new_company_registration_path, class: "nav-link" %>
+                </li>
+                <% end %>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
     </div> 
-  </header>
-    <% if flash.present? %>
-      <div class="flash">
-        <% flash.each do |key, value| %>
-          <div class="<%= key %>"><%= value %></div>
-        <% end %>
-      </div>
-      
-      
-    <% end %>
-    <main>
+      <% if flash.present? %>
+        <div class="flash">
+          <% flash.each do |key, value| %>
+            <div class="<%= key %>"><%= value %></div>
+          <% end %>
+        </div>
+      <% end %>
     <%= yield %>
-    </main>
     <footer></footer>
   </body>
 </html>

@@ -10,7 +10,7 @@
 @import 'profile';
 
 body {
-  padding-top: 52px; 
+  padding-top: 60px; 
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
@@ -23,7 +23,18 @@ main {
   background-color: $base-bg-color;
 
   font-size: $fontsize;
+  padding-bottom: 30px;
 }
+
+.main {
+  flex: 1;
+  background-color: $base-bg-color;
+
+  font-size: $fontsize;
+  padding: 30px;
+
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -40,12 +51,30 @@ a {
   padding: 0px;
 }
 
+.user {
+  flex: 1;
+  font-size: $fontsize;
+  padding: 30px;
+  background-color: $user-bg-color;
+}
 
+.company {
+  flex: 1;
+  font-size: $fontsize;
+  padding: 30px;
+  background-color: $company-bg-color;
+
+}
 
 
 //TOP画面
 
 .top {
+  flex: 1;
+  background-color: $base-bg-color;
+
+  font-size: $fontsize;
+  padding-bottom: 30px;
 
   &_image {
 
@@ -60,14 +89,14 @@ a {
 
     h2 {
       position: absolute;
-      top: 80%;
+      top: 50%;
       left: 50%;
       -ms-transform: translate(-50%,-50%);
       -webkit-transform: translate(-50%,-50%);
       transform: translate(-50%,-50%);
       color: $image-color;
       font-weight: bold; 
-      font-size: 3em;
+      font-size: 2rem;
       padding: 0;
     }
   }
@@ -103,7 +132,12 @@ a {
 
 
 //ログイン画面
+
+
+
 .login {
+
+  
   
   h1 {
     text-align: center;

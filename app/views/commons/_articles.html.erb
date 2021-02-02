@@ -1,9 +1,11 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <% articles.each do |article| %>
-        <%= render 'commons/article', article: article %>
-      <% end %>
+<div class="main">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <% articles.each do |article| %>
+          <%= render 'commons/article', article: article %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
