@@ -156,6 +156,13 @@ a {
     font-size: 16px;
     font-weight: 500;
   }
+
+  .column {
+    max-width: 400px;
+    margin: auto;
+    padding: 0px;
+  }
+
   .r-button {
     margin: 40px 0 0 0;
     display: block;
