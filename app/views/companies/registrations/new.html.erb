@@ -1,7 +1,9 @@
 <div class="company">
   <div class="container login">
+
     <h1>法人新規登録</h1>
 
+  <div class="column">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -29,5 +31,6 @@
     <% end %>
 
     <%= render "companies/shared/links" %>
+    </div>
   </div>
 </div>
