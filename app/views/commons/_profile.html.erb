@@ -38,9 +38,9 @@
               <%= link_to 'プロフィールの編集', edit_company_profile_path %>
             <% else %>
             <% if current_user&.has_followed?(company) %>
-                <%= link_to 'Unfollow', relationship_unfollows_path(company), data: {method: 'post'} %>
+                <%= link_to 'フォロー中', relationship_unfollows_path(company),class: "follow" , data: {method: 'post'} %>
               <% else %>
-              <%= link_to 'Follow', relationship_follows_path(company), data: {method: 'post'} %>
+              <%= link_to 'フォロー', relationship_follows_path(company),class: "unfollow" , data: {method: 'post'} %>
               <% end %>
             <% end %>
           </div>
