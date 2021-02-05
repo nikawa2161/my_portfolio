@@ -27,19 +27,19 @@ RSpec.describe 'Users', type: :request do
       user2.valid?
       expect(user2.errors[:email]).to include('はすでに存在します')
     end
-    
+
     it 'パスワードがない場合、無効である' do
       user = FactoryBot.build(:user, password: nil)
       user.valid?
       expect(user.errors[:password]).to include('を入力してください')
     end
-    
+
     it 'パスワードが６文字以上の場合、有効である' do
       user = FactoryBot.build(:user, password: Faker::Lorem.characters(number: 6))
       user.valid?
       expect(user).to be_valid
     end
-    
+
     it 'パスワードが６文字未満の場合、無効である' do
       user = FactoryBot.build(:user, password: Faker::Lorem.characters(number: 5))
       user.valid?

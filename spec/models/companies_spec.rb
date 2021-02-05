@@ -39,7 +39,7 @@ RSpec.describe 'Companies', type: :request do
       company.valid?
       expect(company).to be_valid
     end
-    
+
     it 'パスワードが６文字未満の場合、無効である' do
       company = FactoryBot.build(:company, password: Faker::Lorem.characters(number: 5))
       company.valid?

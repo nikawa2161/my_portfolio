@@ -11,4 +11,3 @@ FactoryBot.define do
     phone_number { Faker::Lorem.characters(number: 10) }
   end
 end
-

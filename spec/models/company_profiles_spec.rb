@@ -12,4 +12,3 @@ RSpec.describe CompanyProfile, type: :model do
     end
   end
 end
-
