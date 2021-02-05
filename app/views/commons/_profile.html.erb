@@ -2,8 +2,12 @@
   <div class="container profile">
     <div class="row">
       <div class="col text-center profile_top">
-        <h1>My Page</h1>
-        <h3>マイページ</h3>
+       <% if company == current_company%>
+              <h1>My Page</h1>
+          <h3>マイページ</h3>
+            <% else %>
+            <h1>法人ページ</h1>
+            <% end %>
       </div>
     </div>
     <div class="row profile_content">
@@ -37,12 +41,12 @@
             <% if company == current_company%>
               <%= link_to 'プロフィールの編集', edit_company_profile_path %>
             <% else %>
-            <% if current_user&.has_followed?(company) %>
+              <% if current_user&.has_followed?(company) %>
                 <%= link_to 'フォロー中', relationship_unfollows_path(company),class: "follow" , data: {method: 'post'} %>
               <% else %>
-              <%= link_to 'フォロー', relationship_follows_path(company),class: "unfollow" , data: {method: 'post'} %>
+                <%= link_to 'フォロー', relationship_follows_path(company),class: "unfollow" , data: {method: 'post'} %>
               <% end %>
-            <% end %>
+            <% end %>      
           </div>
       </div>
     </div>
