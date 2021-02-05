@@ -28,9 +28,9 @@ RSpec.describe Article, type: :model do
     let!(:article) { build(:article, title: nil, company: company) }
     before do
       article.save
-    end  
+    end
     it'記事が保存できない'do
-      expect(article.errors.messages[:title]).to include("を入力してください", "は2文字以上で入力してください")
+      expect(article.errors.messages[:title]).to include('を入力してください', 'は2文字以上で入力してください')
     end
   end
 
@@ -38,9 +38,9 @@ RSpec.describe Article, type: :model do
     let!(:article) { build(:article, body: nil, company: company) }
     before do
       article.save
-    end  
+    end
     it'記事が保存できない'do
-      expect(article.errors.messages[:body]).to include("を入力してください")
+      expect(article.errors.messages[:body]).to include('を入力してください')
     end
   end
 
@@ -48,9 +48,9 @@ RSpec.describe Article, type: :model do
     let!(:article) { build(:article, Job_title: nil, company: company) }
     before do
       article.save
-    end  
+    end
     it'記事が保存できない'do
-      expect(article.errors.messages[:Job_title]).to include("を入力してください")
+      expect(article.errors.messages[:Job_title]).to include('を入力してください')
     end
   end
 
@@ -58,9 +58,9 @@ RSpec.describe Article, type: :model do
     let!(:article) { build(:article, employment: nil, company: company) }
     before do
       article.save
-    end  
+    end
     it'記事が保存できない'do
-      expect(article.errors.messages[:employment]).to include("を入力してください")
+      expect(article.errors.messages[:employment]).to include('を入力してください')
     end
   end
 
@@ -68,9 +68,9 @@ RSpec.describe Article, type: :model do
     let!(:article) { build(:article, education: nil, company: company) }
     before do
       article.save
-    end  
+    end
     it'記事が保存できない'do
-      expect(article.errors.messages[:education]).to include("を入力してください")
+      expect(article.errors.messages[:education]).to include('を入力してください')
     end
   end
 
@@ -78,9 +78,9 @@ RSpec.describe Article, type: :model do
     let!(:article) { build(:article, licensure: nil, company: company) }
     before do
       article.save
-    end  
+    end
     it'記事が保存できない'do
-      expect(article.errors.messages[:licensure]).to include("を入力してください")
+      expect(article.errors.messages[:licensure]).to include('を入力してください')
     end
   end
 
@@ -90,7 +90,7 @@ RSpec.describe Article, type: :model do
       article.save
     end
     it'記事が保存できない'do
-      expect(article.errors.messages[:documents]).to include("を入力してください")
+      expect(article.errors.messages[:documents]).to include('を入力してください')
     end
   end
 
@@ -98,9 +98,9 @@ RSpec.describe Article, type: :model do
     let!(:article) { build(:article, selection: nil, company: company) }
     before do
       article.save
-    end  
+    end
     it'記事が保存できない'do
-      expect(article.errors.messages[:selection]).to include("を入力してください")
+      expect(article.errors.messages[:selection]).to include('を入力してください')
     end
   end
 
@@ -108,9 +108,9 @@ RSpec.describe Article, type: :model do
     let!(:article) { build(:article, screening_location: nil, company: company) }
     before do
       article.save
-    end  
+    end
     it'記事が保存できない'do
-      expect(article.errors.messages[:screening_location]).to include("を入力してください")
+      expect(article.errors.messages[:screening_location]).to include('を入力してください')
     end
   end
 end
