@@ -1,6 +1,6 @@
 # リライフ
 
-<img width="1440" alt="スクリーンショット 2021-01-30 21 33 45" src="https://user-images.githubusercontent.com/68407983/106356536-a9f07980-6343-11eb-91f1-a0944e3f55da.png">
+<img width="1440" alt="スクリーンショット 2021-02-06 20 47 04" src="https://user-images.githubusercontent.com/68407983/107117281-a1a4bb00-68bc-11eb-8cbe-b22866cf6edb.png">
 
 # サイト概要
 「転職をもっと気軽に」<br>
