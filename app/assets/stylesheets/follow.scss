@@ -1,0 +1,20 @@
+.follow {
+  min-height: 39px;
+  padding: 0.3em 1em;
+  border-color: rgb(29, 161, 242);
+  border-width: 1px;
+  border-radius: 9999px;
+  background-color: rgba(52, 159, 226, 0.774);
+  color: white;
+
+}
+
+.unfollow {
+  min-height: 39px;
+  padding: 0.3em 1em;
+  border-color: rgba(29, 160, 242, 0.863);
+  border-width: 1px;
+  border-radius: 9999px;
+  background-color: rgb(142, 153, 199);
+  color: white;
+}
