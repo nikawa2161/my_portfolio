@@ -1,0 +1,43 @@
+
+//ログイン画面
+.login {
+
+  h1 {
+    text-align: center;
+    font-size: 40px;
+  }
+
+  .text {
+    width: 100%;
+    height: 40px;
+    padding: 0px 8px;
+    margin: 0 0 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background: #FFF;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .column {
+    max-width: 400px;
+    margin: auto;
+    padding: 0px;
+  }
+
+  .r-button {
+    margin: 40px 0 0 0;
+    display: block;
+    box-sizing: border-box;
+    border-radius: 3px;
+    width: 100%;
+    font-size: 14px;
+    height: 45px;
+    text-align: center;
+    background: $light-bg-color;
+    color: #FFFFFF;
+    cursor: pointer;
+    border: none;
+  }
+}

@@ -1,0 +1,26 @@
+@import 'variables';
+
+// ROOM
+.left-message{
+  text-align: left;
+}
+
+//message
+.message {
+  &_top {
+    border-bottom: solid black 1px;
+    padding-bottom: 50px;
+  
+    &_image {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      
+      img {
+        border-radius: 50%;
+        width: $image_size;
+        height: $image_size;
+      }
+    }
+  }
+}

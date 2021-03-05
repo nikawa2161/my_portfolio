@@ -1,11 +1,15 @@
 // @import 'bootstrap';
 @import 'variables';
+@import 'top';
 @import 'header';
+@import 'login';
 @import 'form';
 @import 'card';
 @import 'buttons';
 @import 'flash';
 @import 'article';
+@import 'room';
+@import 'follow';
 @import 'common';
 @import 'profile';
 
@@ -63,158 +67,9 @@ a {
   font-size: $fontsize;
   padding: 30px;
   background-color: $company-bg-color;
-
 }
-
-
-//TOP画面
-
-.top {
-  flex: 1;
-  background-color: $base-bg-color;
-
-  font-size: $fontsize;
-  padding-bottom: 30px;
-
-  &_image {
-    position: relative;
-
-    .card-img {
-
-    width: 100%;
-    height: auto;
-    opacity: 0.7; 
-    padding: 0;
-
-    }
-
-    p {
-      color: $image-color;
-      font-weight: bold; 
-      font-size: 2rem;
-      top: 0;
-      display: flex;
-      width: 100%;
-      height: 110%;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-
-  &_about{
-    width: 100%;
-    h2 {
-      margin: 0px;
-
-    }
-  }
-
-  &_content {
-    margin: 30px 0;
-    
-    &_img {
-      width: 100%;
-      height: auto;
-      padding: 0;
-      
-    }
-  }
-
-  
-
-  &_left {
-    box-sizing: border-box;
-    width: 100%;
-    border: 1px  solid black;
-    padding: 50px;
-  }
-
-  &_right {
-    box-sizing: border-box;
-    width: 100%;
-    border: 1px  solid black;
-    padding: 50px;
-  }
-}
-
-
-//ログイン画面
-
-
-
-.login {
-
-  
-  
-  h1 {
-    text-align: center;
-    font-size: 40px;
-  }
-
-  .text {
-    width: 100%;
-    height: 40px;
-    padding: 0px 8px;
-    margin: 0 0 15px 0;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    background: #FFF;
-    box-sizing: border-box;
-    font-size: 16px;
-    font-weight: 500;
-  }
-
-  .column {
-    max-width: 400px;
-    margin: auto;
-    padding: 0px;
-  }
-
-  .r-button {
-    margin: 40px 0 0 0;
-    display: block;
-    box-sizing: border-box;
-    border-radius: 3px;
-    width: 100%;
-    font-size: 14px;
-    height: 45px;
-    text-align: center;
-    background: $light-bg-color;
-    color: #FFFFFF;
-    cursor: pointer;
-    border: none;
-    
-  }
-
-  
-}
-
 // きじ画面
 
-// ボタン
-.float_btn {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  width: 64px;
-  height: 64px;
-  border-radius: 100%;
-  text-align: center;
-  background-color: $header-color;
-  color: white;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-
-  i {
-    margin-top: 22px;
-  }
-}
-
-
-// ROOM
-
-.left-message{
-  text-align: left;
-}
 
 .right-message{
   text-align: right;
@@ -235,52 +90,4 @@ a {
       margin-right: 8px;
     }
   }
-}
-
-//message
-
-.message {
-
-  &_top {
-    border-bottom: solid black 1px;
-    padding-bottom: 50px;
-  
-
-    &_image {
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      
-
-
-      img {
-        border-radius: 50%;
-        width: $image_size;
-        height: $image_size;
-      }
-    }
-  }
-}
-
-.follow {
-  min-height: 39px;
-  padding: 0.3em 1em;
-  border-color: rgb(29, 161, 242);
-  border-width: 1px;
-  border-radius: 9999px;
-  background-color: rgba(52, 159, 226, 0.774);
-  color: white;
-
-}
-
-.unfollow {
-  min-height: 39px;
-  padding: 0.3em 1em;
-  border-color: rgba(29, 160, 242, 0.863);
-  border-width: 1px;
-  border-radius: 9999px;
-  background-color: rgb(142, 153, 199);
-  color: white;
-
-  
 }
